@@ -16,3 +16,10 @@
         upgrade: full
         autoremove: yes
         autoclean: yes
+    - name: Execute ls -a command
+      command: ls -a
+      register: ls_output
+
+    - name: Print ls -a output
+      debug:
+        msg: "{{ ls_output.stdout_lines }}"
