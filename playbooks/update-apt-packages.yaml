@@ -3,7 +3,16 @@
 
   become: true
   tasks:
-    - name: update apt packages
+    - name: Update package cache
       apt:
-        upgrade: yes
         update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+
+    - name: Perform a distribution upgrade
+      apt:
+        upgrade: full
+        autoremove: yes
+        autoclean: yes
